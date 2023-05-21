@@ -3,31 +3,179 @@
 <head>
     <title>My Website</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        *, *::after, *::before {
+            box-sizing: border-box;
+        }
 
+        .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 3px solid rgb(58, 93, 80);
+  border-radius: 10px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 700px;
+  max-width: 80%;
+  padding: 10px;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+        .modal-header {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border-bottom: 1px solid black; */
+            text-align: center;
+        }
+
+        .modal-header .title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            font-family: Helvetica;
+            text-align: center;
+        }
+
+        .modal-header .close-button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .modal-body {
+            padding: 10px 15px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        #overlay {
+            position: fixed;
+            opacity: 0;
+            transition: 200ms ease-in-out;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .3);
+            pointer-events: none;
+        }
+
+        #overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .open-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgb(58, 93, 80);
+            border-radius: 10px;
+            font-size: 1.5rem;
+            background-color:  rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+
+    </style>
 </head>
 <body>
     <nav>
         <ul>
-            
-          <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
-          
-          <li class="dropdown">
-            <a href="#" style="font-family: Helvetica;">
-              Information
-              
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="/hvordan.html">Hvordan virker det?</a></li>
-              <li><a href="/hvor.html">Hvor kommer dataen fra?</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
+            <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
+            <li class="dropdown">
+                <a href="#" style="font-family: Helvetica;">Information</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/hvordan.html">Hvordan virker det?</a></li>
+                    <li><a href="/hvor.html">Hvor kommer dataen fra?</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
         </ul>
-        <img src="resources/sort.png" style="width: 35px; height: 35px;">
         <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet</h1>
-      </nav>
+        <img src="resources/grøn.png" style="width: 48px; height: 35px; padding-left: 12px;">
+    </nav>
 
-	
-	<iframe id="map" src="resources/andelskortet.html"></iframe>
+    <iframe id="map" src="resources/andelskortet.html"></iframe>
+    <button class="open-button" data-modal-target="#modal">+</button>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Velkommen til Andelskortet - dit kompas i Københavns andelsboligjungle!</div>
+  
+            <button data-close-button class="close-button" style="font-size: 1.6em;">&times;</button>
+            
+
+
+
+        </div>
+        <div class="modal-body"> 
+          Få et lynhurtigt overblik over byens andelsboliger på vores hjemmeside. Vi har samlet offentligt tilgængeligt data om andelsboliger i København ved brug af vores 
+          søgealgoritmer, så du let kan udforske markedet. <br><br>
+          Vær dog opmærksom på, at kortet kan være ufuldstændig. Derfor anbefaler vi altid at dobbelttjekke informationen. Vi er her for at give dig et vejledende indblik i det pulserende andelsboligmarked - så held og lykke med din søgen!
+          Opdag de forskellige nabolag, find din perfekte placering og skab dig et overblik over andelsboligerne med vores interaktive kort. <br><br>
+          Tak fordi du valgte Andelskortet - din nøgle til Københavns andelsboligunivers!
+          
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <script>
+        const openModalButtons = document.querySelectorAll('[data-modal-target]');
+        const closeModalButtons = document.querySelectorAll('[data-close-button]');
+        const overlay = document.getElementById('overlay');
+        const openButton = document.querySelector('.open-button');
+        const modal = document.getElementById('modal');
+
+        openModal(modal);
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget);
+                openModal(modal);
+            });
+        });
+
+        overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active');
+            modals.forEach(modal => {
+                closeModal(modal);
+            });
+        });
+
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                closeModal(modal);
+            });
+        });
+
+        function openModal(modal) {
+            if (modal == null) return;
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeModal(modal) {
+            if (modal == null) return;
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+    </script>
 </body>
 </html>
