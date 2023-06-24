@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+    <title>Andelskortet</title>
     <link rel="stylesheet" href="css/styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9472244536659073"
      crossorigin="anonymous"></script>
@@ -17,10 +17,10 @@
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
   border: 3px solid rgb(58, 93, 80);
-  border-radius: 10px;
+  border-radius: 40px;
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.9);
-  width: 700px;
+  width: 950px;
   max-width: 80%;
   padding: 10px;
 }
@@ -30,31 +30,33 @@
 }
 
 
-        .modal-header {
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /* border-bottom: 1px solid black; */
-            text-align: center;
-        }
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-        .modal-header .title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            font-family: Helvetica;
-            text-align: center;
-        }
+.modal-header .title {
+  flex-grow: 1;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-align: center;
+}
 
-        .modal-header .close-button {
-            cursor: pointer;
-            border: none;
-            outline: none;
-            background: none;
-            font-size: 1.25rem;
-            font-weight: bold;
-            text-align: center;
-        }
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-left: auto; /* Push the close button to the right */
+}
+
+
 
         .modal-body {
             padding: 10px 15px;
@@ -94,6 +96,61 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgba(240, 240, 240, 0.5);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            margin-top: 0%;
+            display: flex;
+            justify-content: space-between; /* Adjust the spacing between logo and text */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: Helvetica;
+            font-size: 12px;
+            color: rgb(77, 77, 77);
+        }
+
+        .footer a {
+            color: rgb(77, 77, 77);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: auto;
+            margin-top: 10px;
+            margin-right: 10px; /* Add right margin to move the logo to the right */
+        }
+
+
+        .map-container {
+        position: relative;
+        }
+
+        #map {
+        width: 100%;
+        height: 100%;
+        filter: blur(3px); /* Apply blur effect to the map */
+        }
+
+
+    
+        .line-break {
+            display: block;
+            margin-top: 0.3em; /* Adjust the margin-top value as needed */
+        }
+
+
 
     </style>
 </head>
@@ -110,33 +167,86 @@
             </li>
             <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
         </ul>
+        <div style="display: flex; justify-content: center;">
+            <a href="adgang.html" style="margin-right: 30px; font-size: 14px; display: inline-block; align-items: center; text-align: center; border-radius: 10px; background-color: rgb(58, 93, 80);
+             color: white; padding: 10px 20px; padding-right: text-decoration: none; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Få adgang nu</a>
+        </div>
         <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet</h1>
         <img src="resources/grøn.png" style="width: 48px; height: 35px; padding-left: 12px;">
     </nav>
 
+
     <iframe id="map" src="resources/andelskortet.html"></iframe>
+    <div class="map-container">
+  <div id="map"></div>
+  <div class="circle-overlay"></div>
+</div>
     <button class="open-button" data-modal-target="#modal">+</button>
     <div class="modal" id="modal">
-        <div class="modal-header">
-            <div class="title">Velkommen til Andelskortet - dit kompas i Københavns andelsboligjungle!</div>
-  
+        <div class="modal-header" style="text-align: center;">
+            <div style="font-size: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: right;"> </div>
             <button data-close-button class="close-button" style="font-size: 1.6em;">&times;</button>
-            
-
-
-
         </div>
+
+        <div style="font-size: 24px; color:rgb(58, 93, 80);  font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: center;"> Velkommen til Andelskortet</div>
+        
         <div class="modal-body"> 
+            <br>
+            <div style="padding-left: 20px; padding-right: 20px;">
+
           Få et lynhurtigt overblik over byens andelsboliger på vores hjemmeside. Vi har samlet offentligt tilgængeligt data om andelsboliger i København ved brug af vores 
-          søgealgoritmer, så du let kan udforske markedet. <br><br>
-          Vær dog opmærksom på, at kortet kan være ufuldstændig. Derfor anbefaler vi altid at dobbelttjekke informationen. Vi er her for at give dig et vejledende indblik i det pulserende andelsboligmarked - så held og lykke med din søgen!
-          Opdag de forskellige nabolag, find din perfekte placering og skab dig et overblik over andelsboligerne med vores interaktive kort. <br><br>
-          Tak fordi du valgte Andelskortet - din nøgle til Københavns andelsboligunivers!
-          
+          søgealgoritmer, så du let kan udforske markedet. 
         </div>
+            <h3>Sådan gør du</h3>
+            
+            <div style="text-align: left; padding-left: 100px;">
+                1. Udforsk andelskortet og find din drømmebolig. <br style="line-height: 150%;">
+                2. Kontakt andelsboligen og skriv dig på deres venteliste. <br style="margin-bottom: 20px;">
+               3. Vær tålmodig og vent på det rette bolig tilbud. 
+        </div>
+
+          <img src="resources/proces.png" alt="Photo description" style="width: 50%; max-width: 600px; height: auto; align-items: center; padding: 30px;">
+
+
+          <br> Få 7 dages adgang til kun 20 kr.
+    
+          <!-- Add the button with the desired styling and center it -->
+          <div style="display: flex; justify-content: center; margin-top: 20px;">
+              <a href="adgang.html" style="display: inline-block; align-items: center; text-align: center; border-radius: 10px; background-color: rgb(58, 93, 80);
+               color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Få adgang nu</a>
+          </div>
+        </div>
+
+        <div class="modal-body" style="font-size: 14px; line-height: 150%;"> 
+          <br>Vær dog opmærksom på, at kortet kan være ufuldstændig. Derfor anbefaler vi altid at dobbelttjekke informationen. Vi er her for at give dig et vejledende 
+          indblik i det pulserende andelsboligmarked - så held og lykke med din søgen!
+          <br>
+        </div>
+
+
     </div>
+
+
+    
     <div id="overlay"></div>
 
+
+
+    <footer class="footer">
+
+        <p>
+            © 2023 Andelskortet. All rights reserved. |
+            <a href="handelsbetingelser.html">Handelsbetingelser</a> |
+            <a href="index.html">Andelskortet</a> |
+            <span class="line-break"></span> <!-- Add a <span> element for the line break -->
+            Adresse: <span>Hørsholmsgade 22A, København N, 2200</span> | 
+            Tlf: + 45 24 23 25 17 | E-mail: andelskortet@gmail.com |
+            CVR: 44093863
+        </p>
+        <img src="resources/visa_logo.png" alt="Logo" class="footer-logo">
+    </footer>
+    
+    
     <script>
         const openModalButtons = document.querySelectorAll('[data-modal-target]');
         const closeModalButtons = document.querySelectorAll('[data-close-button]');
