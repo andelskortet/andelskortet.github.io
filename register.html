@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Andelskortet - Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
+        <li class="dropdown">
+            <a href="#" style="font-family: Helvetica;">Information</a>
+            <ul class="dropdown-menu">
+                <li><a href="/hvordan.html">Hvordan virker det?</a></li>
+                <li><a href="/hvor.html">Hvor kommer dataen fra?</a></li>
+            </ul>
+        </li>
+        <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
+    </ul>
+    <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet</h1>
+    <img src="resources/grøn.png" style="width: 35px; height: 35px; padding-left: 12px;">
+</nav>
+
+<h1>Register</h1>
+<form action="register.php" method="post">
+    <label for="usersName">Username:</label>
+    <input type="text" id="usersName" name="usersName" required><br>
+
+    <label for="usersPwd">Password:</label>
+    <input type="password" id="usersPwd" name="usersPwd" required><br>
+
+    <input type="submit" value="Register">
+</form>
+
+</body>
+</html>
