@@ -3,6 +3,27 @@
 <head>
     <title>Andelskortet</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+    
+      body {
+        background-image: url('resources/kontakt.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+    
+    /* Add a gradient overlay */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95));
+        z-index: -1;
+    }</style>
 
 </head>
 <body>
@@ -28,15 +49,25 @@
       </nav>
       
     <h1>Sådan er dataen indsamlet til Andelskortet</h1>
-  
-    <ul>
-        <li>Navnene på andelsforeningerne er blevet indhentet ved hjælp af automatiserede søgealgoritmer, der har søgt efter andelsboliger i København på internettet.</li>
-        <li>Hjemmesiderne er blevet udvalgt ved at filtrere hyppigt forekommende reklamehjemmesider fra resultatet af søgningen. Derefter er en manuel gennemgang blevet udført 
-          for at fjerne uønskede hjemmesider.</li>
-        <li>Prisniveauet og ventelisteoplysninger er blevet indsamlet ved manuelt at undersøge hver enkelt hjemmeside for oplysninger om pris og tilgængelighed på ventelisten.</li>
-      </ul> 
-      <p style="line-height: 40px; text-align: center;">Vi har gjort vores bedste for at sikre nøjagtigheden og opdateringen af oplysningerne, men det er vigtigt at bemærke, at pris- og ledighedsoplysningerne kan ændre sig over tid. 
-        Vi anbefaler derfor altid at kontakte de relevante andelsforeninger direkte for at få de mest aktuelle oplysninger.</p>
 
+        <p style="line-height: 20px; text-align: center; margin-left: 200px;margin-right: 200px;">
+        
+          Vil du vide, hvordan vi nøje kuraterer og opdaterer vores oplysninger på Andelskortet? Her er vores proces:</p>
+
+          <ol style="line-height: 40px; text-align: center; margin-left: 400px;margin-right: 400px;">
+              <li>
+                  <strong>Automatiseret Søgealgoritmer:</strong> Først og fremmest bruger vi avancerede automatiserede søgealgoritmer, der er specielt designet til at scanne internettet for andelsboliger i København. Disse algoritmer hjælper os med at identificere og indsamle oplysninger om de forskellige andelsforeninger og deres boliger.
+              </li>
+              <li>
+                  <strong>Filtrering og Manuelt Udvælgelse:</strong> Næste trin indebærer en omhyggelig filtrering af de indsamlede resultater for at eliminere gentagne reklamehjemmesider og uvedkommende oplysninger. Vores team udfører en manuel gennemgang for at sikre, at kun relevante og troværdige hjemmesider inkluderes i vores database.
+              </li>
+              <li>
+                  <strong>Manuel Dataindsamling:</strong> For at give dig præcise og aktuelle oplysninger går vi et skridt videre ved at indsamle prisniveauer og ventelisteoplysninger manuelt. Dette indebærer, at vi besøger hver enkelt hjemmeside individuelt for at sikre, at vi har adgang til de nyeste priser og ventelisteoplysninger.
+              </li>
+          </ol>
+      
+          <p style="line-height: 40px; text-align: center; margin-left: 400px;margin-right: 400px;">Selvom vi har gjort alt i vores magt for at sikre nøjagtigheden og opdateringen af oplysningerne på Andelskortet, er det vigtigt at huske, at pris- og ledighedsoplysninger kan ændre sig over tid. Derfor anbefaler vi altid, at du direkte kontakter de relevante andelsforeninger for at få de mest aktuelle og pålidelige oplysninger.</p>
+      
+    
 </body>
 </html>
