@@ -111,7 +111,7 @@ body {
     nav a:hover {
     color: rgb(58, 93, 80);
     }
-    
+
     #map {
     position: absolute;
     top: 0;
@@ -128,7 +128,17 @@ body {
     font-weight: bold;
     color: #333333;
     }
-    
+        /* Beta label styling */
+        .beta-label {
+          font-family: Helvetica, sans-serif;
+          font-size: 0.8rem;
+          font-weight: bold;
+          color: white;
+          background-color: red;
+          padding: 2px 6px;
+          border-radius: 3px;
+          vertical-align: top;
+      }
     .logo img {
     height: 10px;
     width: 10px;

@@ -23,7 +23,21 @@
         height: 100%;
         background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95));
         z-index: -1;
-    }</style>
+    }
+    
+            /* Beta label styling */
+            .beta-label {
+            font-family: Helvetica, sans-serif;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            padding: 2px 6px;
+            border-radius: 3px;
+            vertical-align: top;
+        }
+        
+        </style>
 
 </head>
 <!-- Google tag (gtag.js) -->
@@ -37,26 +51,21 @@
 </script>
 
 <body>
-    <nav>
-        <ul>
-            
-          <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
-          
-          <li class="dropdown">
-            <a href="#" style="font-family: Helvetica;">
-              Information
-              
-            </a>
+  <nav>
+    <ul>
+        <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
+        <li class="dropdown">
+            <a href="#" style="font-family: Helvetica;">Information</a>
             <ul class="dropdown-menu">
-              <li><a href="/hvordan.html">Hvordan virker det?</a></li>
-              <li><a href="/hvor.html">Hvor kommer dataen fra?</a></li>
+                <li><a href="/hvordan.html">Hvordan virker det?</a></li>
+                <li><a href="/hvor.html">Hvor kommer dataen fra?</a></li>
             </ul>
-          </li>
-          <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
-        </ul>
-        <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet</h1>
-        <img src="resources/grøn.png" style="width: 35px; height: 35px; padding-left: 12px;">
-      </nav>
+        </li>
+        <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
+    </ul>
+    <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet <span class="beta-label">BETA</span></h1>
+    <img src="resources/grøn.png" style="width: 48px; height: 35px; padding-left: 12px;">
+</nav>
       
     <h1>Sådan er dataen indsamlet til Andelskortet</h1>
 

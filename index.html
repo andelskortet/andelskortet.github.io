@@ -3,62 +3,60 @@
 <head>
     <title>Andelskortet</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9472244536659073"
-     crossorigin="anonymous"></script>
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9472244536659073" crossorigin="anonymous"></script>
      
     <style>
         *, *::after, *::before {
             box-sizing: border-box;
         }
 
+        nav, nav * {
+            box-sizing: content-box;
+        }
         .modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
-  border: 3px solid rgb(58, 93, 80);
-  border-radius: 40px;
-  z-index: 10;
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 950px;
-  max-width: 80%;
-  padding: 10px;
-}
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 200ms ease-in-out;
+            border: 3px solid rgb(58, 93, 80);
+            border-radius: 40px;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 950px;
+            max-width: 80%;
+            padding: 10px;
+        }
 
-.modal.active {
-  transform: translate(-50%, -50%) scale(1);
-}
+        .modal.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
 
+        .modal-header {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-.modal-header {
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+        .modal-header .title {
+            flex-grow: 1;
+            font-size: 1.25rem;
+            font-weight: bold;
+            font-family: Helvetica;
+            text-align: center;
+        }
 
-.modal-header .title {
-  flex-grow: 1;
-  font-size: 1.25rem;
-  font-weight: bold;
-  font-family: Helvetica;
-  text-align: center;
-}
-
-.modal-header .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-left: auto; /* Push the close button to the right */
-}
-
-
+        .modal-header .close-button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-left: auto; /* Push the close button to the right */
+        }
 
         .modal-body {
             padding: 10px 15px;
@@ -161,21 +159,22 @@
             box-shadow: none; /* Remove the shadow on click */
         }
 
-    
         #map {
-        width: 100%;
-        height: 100%;
-        padding-left: 0px;
-        padding-right: 0px;
-        
+            width: 100%;
+            height: 100%;
+            padding-left: 0px;
+            padding-right: 0px;
         }
 
-    
-        .line-break {
+         .line-break {
             display: block;
-            margin-top: 0.3em; /* Adjust the margin-top value as needed */
-        }
-
+            margin-top: 0.3em; 
+            
+            } 
+            
+            
+        
+        
 
 
     </style>
@@ -203,71 +202,44 @@
             </li>
             <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
         </ul>
-        <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet</h1>
-        <img src="resources/grøn.png" style="width: 48px; height: 35px; padding-left: 12px;">
+        <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet <span class="beta-label">BETA</span></h1>
+        <img src="resources/grøn.png" style="width: auto; height: 35; padding: 3px; padding-left: 12px;">
     </nav>
 
-
     <iframe id="map" src="resources/andelskortet.html"></iframe>
-
-      
-</div>
+    
     <div class="modal" id="modal">
         <div class="modal-header" style="text-align: center;">
-            <div style="font-size: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: right;"> </div>
+            <div style="font-size: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: right;"></div>
             <button data-close-button class="close-button" style="font-size: 1.6em;">&times;</button>
         </div>
-
-        <div style="font-size: 24px; color:rgb(58, 93, 80);  font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: center;"> Velkommen til Andelskortet!</div>
-        
-        <div class="modal-body"> 
+        <div style="font-size: 24px; color:rgb(58, 93, 80); font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: center;">Velkommen til Andelskortet!</div>
+        <div class="modal-body">
             <br>
-            <div style="padding-left: 20px; padding-right: 20px;">
-
-                
-                Andelskortet er et gratis interaktivt kort over andelsboliger i København, skabt ved hjælp af offentligt tilgængelige data ved hjælp af vores avancerede søgealgoritmer.
-
-                Andelsboligerne er inddelt efter, om ventelisten er åben, lukket eller kræver en reference i andelsboligen, så du let kan skrive dig op på de åbne lister.
-                
-                Vi er her for at hjælpe dig med at finde din næste andelsbolig.
-
-        </div>
+            <div style="padding-left: 20px; padding-right: 20px; ">
+                Velkommen til Andelskortet, et gratis, interaktivt kort over andelsforeninger i København. Kortet er baseret på offentlige data og avancerede søgealgoritmer, så du nemmere kan finde den andelsbolig, du søger. God fornøjelse.                
+            </div>
             <h3>Sådan gør du</h3>
-            
-            <div style="text-align: left; padding-left: 100px;">
+            <div style="text-align: left; padding-left: 200px;">
                 1. Udforsk andelskortet og find din drømmebolig. <br style="line-height: 150%;">
                 2. Kontakt andelsboligen og skriv dig på deres venteliste. <br style="margin-bottom: 20px;">
-               3. Vær tålmodig og vent på det rette bolig tilbud. 
+                3. Vær tålmodig og vent på det rette bolig tilbud.
+            </div>
+            <img src="resources/proces.png" alt="Photo description" style="width: 50%; max-width: 600px; height: auto; align-items: center; padding: 30px; padding-top: 20px; padding-bottom: 10px; ">
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <a id="continue-button" style="display: inline-block; align-items: center; text-align: center; border-radius: 10px; background-color: rgb(58, 93, 80); color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Fortsæt</a>
+            </div>
         </div>
-
-          <img src="resources/proces.png" alt="Photo description" style="width: 50%; max-width: 600px; height: auto; align-items: center; padding: 30px;">
-
-    
-          <!-- Add the button with the desired styling and center it -->
-          <div style="display: flex; justify-content: center; margin-top: 20px;">
-            <a id="continue-button" style="display: inline-block; align-items: center; text-align: center; border-radius: 10px; background-color: rgb(58, 93, 80); color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Fortsæt</a>
-
-               
-          </div>
-        </div>
-
         <div class="modal-body" style="font-size: 14px; line-height: 150%;"> 
-          <br>Vær dog opmærksom på, at kortet kan være ufuldstændig. Derfor anbefaler vi altid at dobbelttjekke informationen. Vi er her for at give dig et vejledende 
-          indblik i det pulserende andelsboligmarked - så held og lykke med din søgen!
-          <br>
+            <br>Vær dog opmærksom på, at kortet kan være ufuldstændig. Derfor anbefaler vi altid at dobbelttjekke informationen. Vi er her for at give dig et vejledende 
+            indblik i andelsboligmarked i København - held og lykke med din søgen!
+            <br>
         </div>
-
-
     </div>
 
-
-    
     <div id="overlay"></div>
 
-
-
     <footer class="footer">
-
         <p>
             © 2023 Andelskortet. All rights reserved. |
             <a href="index.html">Andelskortet</a> 
@@ -277,57 +249,54 @@
             CVR: 44093863
         </p>
     </footer>
-    
-    
+
     <script>
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const overlay = document.getElementById('overlay');
-const openButton = document.querySelector('.open-button');
-const modal = document.getElementById('modal');
-const continueButton = document.getElementById('continue-button'); // Add this line
+        const openModalButtons = document.querySelectorAll('[data-modal-target]');
+        const closeModalButtons = document.querySelectorAll('[data-close-button]');
+        const overlay = document.getElementById('overlay');
+        const openButton = document.querySelector('.open-button');
+        const modal = document.getElementById('modal');
+        const continueButton = document.getElementById('continue-button');
 
-openModal(modal);
-
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget);
         openModal(modal);
-    });
-});
 
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal.active');
-    modals.forEach(modal => {
-        closeModal(modal);
-    });
-});
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget);
+                openModal(modal);
+            });
+        });
 
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        closeModal(modal);
-    });
-});
+        overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active');
+            modals.forEach(modal => {
+                closeModal(modal);
+            });
+        });
 
-// Add an event listener for the "Forsæt" button to close the modal
-continueButton.addEventListener('click', () => {
-    const modal = document.getElementById('modal');
-    closeModal(modal);
-});
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                closeModal(modal);
+            });
+        });
 
-function openModal(modal) {
-    if (modal == null) return;
-    modal.classList.add('active');
-    overlay.classList.add('active');
-}
+        continueButton.addEventListener('click', () => {
+            const modal = document.getElementById('modal');
+            closeModal(modal);
+        });
 
-function closeModal(modal) {
-    if (modal == null) return;
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-}
+        function openModal(modal) {
+            if (modal == null) return;
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
 
+        function closeModal(modal) {
+            if (modal == null) return;
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        }
     </script>
 </body>
 </html>
