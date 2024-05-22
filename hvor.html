@@ -8,41 +8,70 @@
     <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
     <link rel="manifest" href="resources/site.webmanifest">
     <style>
-    
-      body {
-        background-image: url('resources/kontakt.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
-    
-    /* Add a gradient overlay */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95));
-        z-index: -1;
-    }
-    
-            /* Beta label styling */
-            .beta-label {
-            font-family: Helvetica, sans-serif;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: white;
-            background-color: red;
-            padding: 2px 6px;
-            border-radius: 3px;
-            vertical-align: top;
-        }
         
-        </style>
+        body {
+            background-image: url('resources/kontakt.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95));
+            z-index: -1;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: #3a5d50;
+            font-size: 1.5em; /* Adjust font size to match h2 */
+            margin-bottom: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #3a5d50;
+            font-size: 1.2em; /* Smaller than h1 but not h3 */
+        }
+        p, ul, ol {
+            line-height: 1.6;
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .extra-space {
+            margin-bottom: 1.5em;
+            margin-left: 1em;
+            margin-right: 1em;
+        }
 
+    </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6B5E8KFFNB"></script>
@@ -55,42 +84,43 @@
 </script>
 
 <body>
-  <nav>
-    <ul>
-        <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
-        <li class="dropdown">
-            <a href="#" style="font-family: Helvetica;">Information</a>
-            <ul class="dropdown-menu">
-                <li><a href="/hvordan.html">Hvordan virker det?</a></li>
-                <li><a href="/hvor.html">Hvor kommer dataen fra?</a></li>
-            </ul>
-        </li>
-        <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
-    </ul>
-    <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet <span class="beta-label">BETA</span></h1>
-    <img src="resources/grøn.png" style="width: 48px; height: 35px; padding-left: 12px;">
-</nav>
-      
+    <nav>
+        <ul>
+            <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
+            <li class="dropdown">
+                <a href="#" style="font-family: Helvetica;">Information</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/hvordan.html">Hvordan virker det?</a></li>
+                    <li><a href="/hvor.html">Hvor kommer dataen fra?</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html" style="font-family: Helvetica;">Kontakt</a></li>
+        </ul>
+        <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet <span class="beta-label">BETA</span></h1>
+        <img src="resources/grøn.png" style="width: auto; height: 35; padding: 3px; padding-left: 12px;">
+    </nav>
+  <div class="container">
     <h1>Sådan er dataen indsamlet til Andelskortet</h1>
-
-        <p style="line-height: 20px; text-align: center; margin-left: 100px;margin-right: 100px;">
-        
-          Vil du vide, hvordan vi nøje kuraterer og opdaterer vores oplysninger på Andelskortet? Her er vores proces:</p>
-
-          <ol style="line-height: 40px; text-align: center; margin-left: 100px;margin-right: 100px;">
-              <li>
-                  <strong>Automatiseret Søgealgoritmer:</strong> Først og fremmest bruger vi avancerede automatiserede søgealgoritmer, der er specielt designet til at scanne internettet for andelsboliger i København. Disse algoritmer hjælper os med at identificere og indsamle oplysninger om de forskellige andelsforeninger og deres boliger.
-              </li>
-              <li>
-                  <strong>Filtrering og Manuelt Udvælgelse:</strong> Næste trin indebærer en omhyggelig filtrering af de indsamlede resultater for at eliminere gentagne reklamehjemmesider og uvedkommende oplysninger. Vores team udfører en manuel gennemgang for at sikre, at kun relevante og troværdige hjemmesider inkluderes i vores database.
-              </li>
-              <li>
-                  <strong>Manuel Dataindsamling:</strong> For at give dig præcise og aktuelle oplysninger går vi et skridt videre ved at indsamle prisniveauer og ventelisteoplysninger manuelt. Dette indebærer, at vi besøger hver enkelt hjemmeside individuelt for at sikre, at vi har adgang til de nyeste priser og ventelisteoplysninger.
-              </li>
-          </ol>
-      
-          <p style="line-height: 40px; text-align: center; margin-left: 100px;margin-right: 100px;">Selvom vi har gjort alt i vores magt for at sikre nøjagtigheden og opdateringen af oplysningerne på Andelskortet, er det vigtigt at huske, at pris- og ledighedsoplysninger kan ændre sig over tid. Derfor anbefaler vi altid, at du direkte kontakter de relevante andelsforeninger for at få de mest aktuelle og pålidelige oplysninger.</p>
-      
-    
+    <p style="line-height: 1.6; text-align: center; margin-left: 100px; margin-right: 100px;">
+      Vil du vide, hvordan vi kuraterer og opdaterer vores oplysninger på Andelskortet? Her er vores proces:
+    </p>
+    <ol style="line-height: 1.6; text-align: left; margin-left: 100px; margin-right: 100px;">
+      <li>
+        <strong>Liste over andelsforeninger:</strong> Vi starter med en liste over andelsforeninger i København, baseret på offentlige data.
+      </li>
+      <li>
+        <strong>Automatiseret Søgealgoritmer:</strong> Derefter bruger vi avancerede automatiserede værktøjer til at finde hjemmesider baseret på navnene på andelsforeningerne. Disse algoritmer hjælper os med at identificere og indsamle oplysninger om de forskellige andelsforeninger og deres boliger.
+      </li>
+      <li>
+        <strong>Filtrering og Manuel Udvælgelse:</strong> Næste trin indebærer filtrering af de indsamlede resultater for at eliminere gentagne reklamehjemmesider og uvedkommende oplysninger. Vores team udfører en manuel gennemgang for at sikre, at kun relevante og troværdige hjemmesider inkluderes i vores database.
+      </li>
+      <li>
+        <strong>Manuel Dataindsamling:</strong> For at give dig præcise og aktuelle oplysninger går vi et skridt videre ved at indsamle prisniveauer og ventelisteoplysninger manuelt. Dette indebærer, at vi besøger hver enkelt hjemmeside individuelt for at sikre, at vi har adgang til de nyeste priser og ventelisteoplysninger.
+      </li>
+    </ol>
+    <p style="line-height: 1.6; text-align: center; margin-left: 100px; margin-right: 100px; margin-top: 40px;">
+      Selvom vi har gjort alt i vores magt for at sikre nøjagtigheden og opdateringen af oplysningerne på Andelskortet, er det vigtigt at huske, at pris- og ledighedsoplysninger kan ændre sig over tid. Derfor anbefaler vi altid, at du direkte kontakter de relevante andelsforeninger for at få de mest aktuelle og pålidelige oplysninger.
+    </p>
+  </div>
 </body>
 </html>

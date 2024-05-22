@@ -16,8 +16,20 @@
       background-attachment: fixed;
       background-position: center center;
   }
-  
+  .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            margin-top: 60px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    h1{
+      margin-top: 30px; /* Reduce space above the h1 */
+      margin-bottom: 40px; /* Reduce space above the h1 */
 
+    }
   /* Add a gradient overlay */
   body::before {
       content: "";
@@ -59,15 +71,17 @@
     <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet <span class="beta-label">BETA</span></h1>
     <img src="resources/grøn.png" style="width: auto; height: 35; padding: 3px; padding-left: 12px;">
 </nav>
+  <div class="container">
 
-    <h1>Kontakt Os</h1>
+      <h1>Kontakt os</h1>
 
-    <p style="text-align: center; line-height: 1.6;">
-      Ønsker du at komme i kontakt med os?  <br> Vi står klar til at besvare dine spørgsmål og hjælpe dig. <br>  Du kan nemt nå os ved at sende en e-mail til: <br><br>
-        <a href="mailto:andelskortet@gmail.com" style="color: rgb(58, 93, 80); font-style:bold;"> andelskortet@gmail.com</a> <br><br>
-    
-        Vores dedikerede team bestræber sig på at svare hurtigst muligt <br>  og ser frem til at assistere dig med alt, hvad du måtte behøve. 
-    </p>
+      <p style="text-align: center; line-height: 1.6;">
+        Ønsker du at komme i kontakt med os?  <br> Vi står klar til at besvare dine spørgsmål og hjælpe dig. <br>  Du kan nemt nå os ved at sende en e-mail til: <br><br>
+          <a href="mailto:andelskortet@gmail.com" style="color: rgb(58, 93, 80); font-style:bold;"> andelskortet@gmail.com</a> <br><br>
+      
+          Vores dedikerede team bestræber sig på at svare hurtigst muligt. <br>  
+      </p>
 
+  </div>
   </body>
 </html>
