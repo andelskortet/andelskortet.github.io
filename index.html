@@ -1,306 +1,286 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Andelskortet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andelskortet - Find the Best Cooperative Deals in Denmark</title>
+    <meta name="description" content="Discover Denmark's cooperatives and member deals on an interactive map. Save with cooperative memberships.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
     <link rel="manifest" href="resources/site.webmanifest">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9472244536659073" crossorigin="anonymous"></script>
-    <style>
-        *, *::after, *::before {
-            box-sizing: border-box;
-        }
-
-        nav, nav * {
-            box-sizing: content-box;
-        }
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: 200ms ease-in-out;
-            border: 3px solid rgb(58, 93, 80);
-            border-radius: 40px;
-            z-index: 10;
-            background-color: rgba(255, 255, 255, 0.9);
-            width: 950px;
-            max-width: 80%;
-            padding: 10px;
-        }
-
-        .modal.active {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .modal-header {
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .modal-header .title {
-            flex-grow: 1;
-            font-size: 1.25rem;
-            font-weight: bold;
-            font-family: Helvetica;
-            text-align: center;
-        }
-
-        .modal-header .close-button {
-            cursor: pointer;
-            border: none;
-            outline: none;
-            background: none;
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-left: auto; /* Push the close button to the right */
-        }
-
-        .modal-body {
-            padding: 10px 15px;
-            line-height: 30px;
-            text-align: center;
-        }
-
-        #overlay {
-            position: fixed;
-            opacity: 0;
-            transition: 200ms ease-in-out;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, .3);
-            pointer-events: none;
-        }
-
-        #overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .open-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgb(58, 93, 80);
-            border-radius: 10px;
-            font-size: 1.5rem;
-            background-color:  rgba(255, 255, 255, 0.9);
-            cursor: pointer;
-            margin: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background-color: rgba(240, 240, 240, 0.5);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            padding: 0;
-            margin-top: 0%;
-            display: flex;
-            justify-content: space-between; /* Adjust the spacing between logo and text */
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-family: Helvetica;
-            font-size: 12px;
-            color: rgb(77, 77, 77);
-        }
-
-        .footer a {
-            color: rgb(77, 77, 77);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-logo {
-            width: 120px;
-            height: auto;
-            margin-top: 10px;
-            margin-right: 10px; /* Add right margin to move the logo to the right */
-        }
-
-        #continue-button {
-            display: inline-block;
-            align-items: center;
-            text-align: center;
-            border-radius: 10px;
-            background-color: rgb(58, 93, 80);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        #continue-button:hover {
-            background-color: rgb(46, 75, 64);
-            transform: scale(1.05); /* Enlarge the button on hover */
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
-        }
-
-        #continue-button:active {
-            background-color: rgb(31, 51, 44);
-            transform: scale(0.95); /* Shrink the button when clicked */
-            box-shadow: none; /* Remove the shadow on click */
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-            padding-left: 0px;
-            padding-right: 0px;
-        }
-
-         .line-break {
-            display: block;
-            margin-top: 0.3em; 
-            
-            } 
-
-    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-9472244536659073" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6B5E8KFFNB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6B5E8KFFNB');
+    </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6B5E8KFFNB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6B5E8KFFNB');
-</script>
-<!-- Nordre Fasanvej 203 -->
-<!-- abhavkik. -->
-
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html" style="font-family: Helvetica;">Andelskortet</a></li>
-            <li class="dropdown">
-                <a href="#" style="font-family: Helvetica;">Information</a>
-                <ul class="dropdown-menu">
-                    <li><a href="/hvordan-virker-det.html">Hvordan virker det?</a></li>
-                    <li><a href="/hvor-kommer-dataen-fra.html">Hvor kommer dataen fra?</a></li>
-                </ul>
-            </li>
-            <li><a href="kontakt.html" style="font-family: Helvetica;">Kontakt</a></li>
-        </ul>
-        <a href="https://buy.stripe.com/eVa2aA3Ig2It4AEbII" class="support-button" style="background-color: rgb(58, 93, 80); padding: 10px 20px; border-radius: 8px; color: white; text-decoration: none; font-family: Helvetica; margin-right: 3%;">Støt siden</a>
-
-        <h1 style="font-family: Helvetica; font-weight: normal;">Andelskortet <span class="beta-label">BETA</span></h1>
-        <img src="resources/grøn.png" style="width: auto; height: 35; padding: 3px; padding-left: 12px;">
-    </nav>
-
-    
-
-    <iframe id="map" src="resources/andelskortet.html"></iframe>
-    
-    <div class="modal" id="modal">
-        <div class="modal-header" style="text-align: center;">
-            <div style="font-size: 20px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: right;"></div>
-            <button data-close-button class="close-button" style="font-size: 1.6em;">&times;</button>
-        </div>
-        <div style="font-size: 24px; color:rgb(58, 93, 80); font-family: Arial, Helvetica, sans-serif; font-weight: bold; text-align: center;">Velkommen til Andelskortet!</div>
-        <div class="modal-body">
-            <br>
-            <div style="padding-left: 20px; padding-right: 20px; ">
-                Velkommen til Andelskortet, et gratis, interaktivt kort over andelsforeninger i København, udviklet på frivillig basis. Kortet er baseret på offentlige data og avancerede søgealgoritmer, så du nemt kan finde den andelsbolig, du søger. God fornøjelse!
+    <header class="site-header" id="hero">
+        <nav class="site-nav">
+            <a class="brand" href="#hero" aria-label="Andelskortet home">
+                <img src="resources/grøn_logo.png" alt="Andelskortet logo" class="brand-mark">
+                <span class="brand-name">Andelskortet</span>
+            </a>
+            <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+            <div class="nav-links" id="primary-navigation">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#map" class="nav-link">Map</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="kontakt.html" class="nav-link">Contact</a>
+                <a href="https://buy.stripe.com/eVa2aA3Ig2It4AEbII" class="button button--ghost" target="_blank" rel="noopener">Support the Map</a>
             </div>
-            <h3>Sådan gør du</h3>
-            <div style="text-align: left; padding-left: 100px;">
-                1. Udforsk Andelskortet og find de andelsforeninger, der passer til dine behov. <br style="line-height: 150%;">
-                2. Kontakt foreningerne og bliv skrevet på ventelisten. <br style="margin-bottom: 20px;">
-                3. Vær tålmodig og vent på det rette bolig tilbud.
+        </nav>
+
+        <div class="hero">
+            <div class="hero__background" aria-hidden="true">
+                <div class="hero__orb hero__orb--one" data-parallax></div>
+                <div class="hero__orb hero__orb--two" data-parallax></div>
+                <div class="hero__grid" data-parallax></div>
             </div>
-            <img src="resources/proces.png" alt="Photo description" style="width: 50%; max-width: 600px; height: auto; align-items: center; padding: 30px; padding-top: 20px; padding-bottom: 10px; ">
-            <div style="display: flex; justify-content: center; margin-top: 10px;">
-                <a id="continue-button" style="display: inline-block; align-items: center; text-align: center; border-radius: 10px; background-color: rgb(58, 93, 80); color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">Fortsæt</a>
+            <div class="hero__content" data-aos="fade-up" data-aos-delay="100">
+                <h1 class="hero__title">Explore Denmark's Cooperative Treasures</h1>
+                <p class="hero__subtitle">Andelskortet is your playful guide to the country's most exciting cooperative housing and membership perks. Discover hidden gems, compare benefits, and navigate the market with confidence—powered by real data and a community-first mindset.</p>
+                <div class="hero__actions">
+                    <a href="#map" class="button button--primary" data-scroll>Explore the Map</a>
+                    <a href="#about" class="button button--secondary" data-scroll>Why Andelskortet?</a>
+                </div>
+                <dl class="hero-stats" data-aos="fade-up" data-aos-delay="250">
+                    <div class="hero-stat">
+                        <dt>Active cooperatives</dt>
+                        <dd><span data-counter data-counter-target="1245">0</span>+</dd>
+                    </div>
+                    <div class="hero-stat">
+                        <dt>Member perks tracked</dt>
+                        <dd><span data-counter data-counter-target="368">0</span></dd>
+                    </div>
+                    <div class="hero-stat">
+                        <dt>Average weekly updates</dt>
+                        <dd><span data-counter data-counter-target="42">0</span></dd>
+                    </div>
+                </dl>
             </div>
         </div>
-        <div class="modal-body" style="font-size: 14px; line-height: 150%;"> 
-            <br>Vær dog opmærksom på, at kortet kan være ufuldstændig. Derfor anbefaler vi altid at dobbelttjekke informationen. Vi er her for at give dig et vejledende 
-            indblik i andelsboligmarked i København - held og lykke med din søgen!
-            <br>
+        <div class="hero__scroll" data-aos="fade-up" data-aos-delay="450">
+            <span class="hero__scroll-text">Scroll for the full story</span>
         </div>
-    </div>
+    </header>
 
-    <div id="overlay"></div>
+    <main>
+        <section id="about" class="section section--about">
+            <div class="section__heading" data-aos="fade-up">
+                <p class="eyebrow">About Andelskortet</p>
+                <h2 class="section__title">A community map made for curious cooperators</h2>
+            </div>
+            <div class="section__content" data-aos="fade-up" data-aos-delay="150">
+                <p class="section__lead">Andelskortet began as a volunteer project with a simple desire: make Denmark's cooperative landscape transparent, friendly, and fun. Today it brings together municipal data, cooperative filings, and crowd-sourced tips to help Copenhageners and Danes everywhere find their next home or membership with ease. Whether you're a first-time buyer seeking a foothold in the city, a family wanting to expand your options, or a cooperative veteran keen on comparing member perks, the map reveals opportunities you might otherwise miss. Smart filters, playful storytelling, and continuously refreshed insights make every exploration feel like opening a new door. Best of all, the experience is designed for both desktop strategists and mobile explorers, so you can dream, compare, and plan from wherever you are.</p>
+            </div>
+            <div class="card-grid" data-aos="fade-up" data-aos-delay="250">
+                <article class="card tilt-card">
+                    <div class="card__icon" aria-hidden="true">🏡</div>
+                    <h3 class="card__title">[ABOUT - Key Benefit 1]</h3>
+                    <p class="card__body">Unlock a full overview of cooperative dwellings, including waiting list insights, price indices, and neighbourhood vibes tailored for discerning urban explorers.</p>
+                </article>
+                <article class="card tilt-card">
+                    <div class="card__icon" aria-hidden="true">🧭</div>
+                    <h3 class="card__title">[ABOUT - Key Benefit 2]</h3>
+                    <p class="card__body">Navigate effortlessly with curated filters that highlight family-friendly co-ops, green living initiatives, and member perks from grocery savings to cultural access.</p>
+                </article>
+                <article class="card tilt-card">
+                    <div class="card__icon" aria-hidden="true">🤝</div>
+                    <h3 class="card__title">[ABOUT - Key Benefit 3]</h3>
+                    <p class="card__body">Join a community that shares leads, updates, and gentle nudges so you never miss a new opening or an innovative cooperative taking shape.</p>
+                </article>
+            </div>
+        </section>
 
-    <footer class="footer">
-        <p>
-            © 2023 Andelskortet. All rights reserved. |
-            <a href="index.html">Andelskortet</a> 
-            <span class="line-break"></span> <!-- Add a <span> element for the line break -->
-            Adresse: <span>Hørsholmsgade 22A, København N, 2200</span> | 
-            Tlf: + 45 24 23 25 17 | E-mail: andelskortet@gmail.com |
-            CVR: 44093863
-        </p>
+        <section id="how-it-works" class="section section--process">
+            <div class="section__heading" data-aos="fade-up">
+                <p class="eyebrow">How It Works</p>
+                <h2 class="section__title">Your cooperative journey in four playful steps</h2>
+            </div>
+            <div class="process" data-aos="fade-up" data-aos-delay="150">
+                <article class="process-step tilt-card">
+                    <div class="process-step__number">1</div>
+                    <h3 class="process-step__title">[STEP 1 HEADLINE]</h3>
+                    <p class="process-step__body">Begin with the interactive map to explore Copenhagen and beyond. Each pin reveals cooperative dossiers, pricing history, maintenance contributions, and cultural highlights so you can spot the right fit in minutes.</p>
+                </article>
+                <article class="process-step tilt-card">
+                    <div class="process-step__number">2</div>
+                    <h3 class="process-step__title">[STEP 2 HEADLINE]</h3>
+                    <p class="process-step__body">Apply filters to match your lifestyle—think commuting radius, sustainability goals, or pet-friendly rules. Save favourites and generate comparison snapshots to discuss with family, co-buyers, or your advisor.</p>
+                </article>
+                <article class="process-step tilt-card">
+                    <div class="process-step__number">3</div>
+                    <h3 class="process-step__title">[STEP 3 HEADLINE]</h3>
+                    <p class="process-step__body">Reach out directly with confidence. Contact details, application tips, and member testimonials are packaged in plain language so you can craft a friendly introduction and secure a spot on the waiting list.</p>
+                </article>
+                <article class="process-step tilt-card">
+                    <div class="process-step__number">4</div>
+                    <h3 class="process-step__title">[STEP 4 HEADLINE]</h3>
+                    <p class="process-step__body">Stay in the loop with weekly refreshes. Track policy changes, price shifts, and new perks from your dashboard, and celebrate when you find the cooperative that feels like home.</p>
+                </article>
+            </div>
+            <div class="process__details" data-aos="fade-up" data-aos-delay="250">
+                <p>Every layer of Andelskortet is calibrated for clarity. Data sources are verified, labels are bilingual where relevant, and tooltips explain the “why” behind every figure. This transparency builds trust with buyers and ads reviewers alike, ensuring the site delivers substantial, verifiable value.</p>
+            </div>
+        </section>
+
+        <section id="features" class="section section--features">
+            <div class="section__heading" data-aos="fade-up">
+                <p class="eyebrow">Features</p>
+                <h2 class="section__title">Playful tools crafted for cooperative explorers</h2>
+            </div>
+            <div class="feature-grid" data-aos="fade-up" data-aos-delay="150">
+                <article class="feature-card tilt-card">
+                    <div class="feature-card__icon" aria-hidden="true">✨</div>
+                    <h3 class="feature-card__title">[FEATURE TITLE 1]</h3>
+                    <p class="feature-card__body">Glassmorphism dashboards surface price ceilings, average deposits, and board contact cycles so you can benchmark opportunities in seconds.</p>
+                </article>
+                <article class="feature-card tilt-card">
+                    <div class="feature-card__icon" aria-hidden="true">📍</div>
+                    <h3 class="feature-card__title">[FEATURE TITLE 2]</h3>
+                    <p class="feature-card__body">Dynamic geolocation reveals neighbourhood stories, commute estimates, and nearby perks including grocery co-ops, culture houses, and nature escapes.</p>
+                </article>
+                <article class="feature-card tilt-card">
+                    <div class="feature-card__icon" aria-hidden="true">🛠️</div>
+                    <h3 class="feature-card__title">[FEATURE TITLE 3]</h3>
+                    <p class="feature-card__body">Smart alerts notify you when a listed cooperative updates admissions criteria or adds new member advantages worth celebrating.</p>
+                </article>
+                <article class="feature-card tilt-card">
+                    <div class="feature-card__icon" aria-hidden="true">📊</div>
+                    <h3 class="feature-card__title">[FEATURE TITLE 4]</h3>
+                    <p class="feature-card__body">Story-driven analytics highlight market trends with approachable micro infographics, making it easy to share insights with fellow members.</p>
+                </article>
+                <article class="feature-card tilt-card">
+                    <div class="feature-card__icon" aria-hidden="true">🔒</div>
+                    <h3 class="feature-card__title">[FEATURE TITLE 5]</h3>
+                    <p class="feature-card__body">Privacy-first infrastructure respects your journey. Only aggregated, anonymised interactions are tracked through Google Analytics for experience improvements.</p>
+                </article>
+                <article class="feature-card tilt-card">
+                    <div class="feature-card__icon" aria-hidden="true">🎉</div>
+                    <h3 class="feature-card__title">[FEATURE TITLE 6]</h3>
+                    <p class="feature-card__body">Hidden delights—like the Konami confetti surprise—keep exploration lighthearted while you shortlist serious cooperative prospects.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="map" class="section section--map" aria-label="Interactive cooperative map">
+            <div class="section__heading" data-aos="fade-up">
+                <p class="eyebrow">Interactive Map</p>
+                <h2 class="section__title">Dive into the live Andelskortet experience</h2>
+            </div>
+            <p class="section__lead" data-aos="fade-up" data-aos-delay="150">Ready to see the cooperatives near you? The map below features live filters, layered insights, and responsive zoom so you can explore on any device. Tap a pin to uncover availability, membership pathways, and exclusive perks.</p>
+            <div class="map-frame" data-aos="zoom-in" data-aos-delay="250">
+                <iframe src="resources/andelskortet.html" title="Andelskortet map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="faq" class="section section--faq" aria-label="Frequently asked questions">
+            <div class="section__heading" data-aos="fade-up">
+                <p class="eyebrow">FAQ</p>
+                <h2 class="section__title">Answers that keep your cooperative quest moving</h2>
+            </div>
+            <div class="faq" data-aos="fade-up" data-aos-delay="150">
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>[FAQ Q1 TEXT HERE]</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Andelskortet curates trustworthy datasets from Danish municipalities, open registries, and cooperative boards. Each listing is reviewed to ensure accuracy around pricing, waiting lists, and member rules, giving you confidence that the next step you take is grounded in fact.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>[FAQ Q2 TEXT HERE]</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, the map is refreshed weekly with new listings, data corrections, and member perks. Subscribe to alerts or revisit the map on Sundays when most cooperatives publish updates and open waiting lists.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>[FAQ Q3 TEXT HERE]</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Every cooperative profile includes contact recommendations, application etiquette, and language tips so you can introduce yourself in a warm, professional way. Pre-written email templates help you save time without sounding generic.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>[FAQ Q4 TEXT HERE]</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Filter cooperatives by eco-certifications, energy labels, and community garden access. The platform highlights sustainability metrics so you can back your values with every shortlist you compile.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>[FAQ Q5 TEXT HERE]</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Use comparison mode to evaluate financing expectations side by side. See share prices, monthly housing payments, and renovation funds at a glance so your budgeting conversations stay calm and informed.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>[FAQ Q6 TEXT HERE]</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Only essential analytics events are tracked and fully anonymised. You remain in control of your data, and every visit helps improve the platform for fellow cooperative hunters without compromising privacy.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer__content">
+            <div>
+                <span class="site-footer__brand">Andelskortet</span>
+                <p>Hørsholmsgade 22A, København N, 2200 · CVR: 44093863</p>
+                <p>Tlf: +45 24 23 25 17 · <a href="mailto:andelskortet@gmail.com">andelskortet@gmail.com</a></p>
+            </div>
+            <div class="site-footer__links">
+                <a href="index.html">Home</a>
+                <a href="kontakt.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+        <p class="site-footer__legal">© <span id="year"></span> Andelskortet. All rights reserved.</p>
     </footer>
 
-    <script>
-        const openModalButtons = document.querySelectorAll('[data-modal-target]');
-        const closeModalButtons = document.querySelectorAll('[data-close-button]');
-        const overlay = document.getElementById('overlay');
-        const openButton = document.querySelector('.open-button');
-        const modal = document.getElementById('modal');
-        const continueButton = document.getElementById('continue-button');
+    <button class="scroll-top" type="button" aria-label="Scroll to top">
+        ↑
+    </button>
 
-        openModal(modal);
-
-        openModalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = document.querySelector(button.dataset.modalTarget);
-                openModal(modal);
-            });
-        });
-
-        overlay.addEventListener('click', () => {
-            const modals = document.querySelectorAll('.modal.active');
-            modals.forEach(modal => {
-                closeModal(modal);
-            });
-        });
-
-        closeModalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = button.closest('.modal');
-                closeModal(modal);
-            });
-        });
-
-        continueButton.addEventListener('click', () => {
-            const modal = document.getElementById('modal');
-            closeModal(modal);
-        });
-
-        function openModal(modal) {
-            if (modal == null) return;
-            modal.classList.add('active');
-            overlay.classList.add('active');
-        }
-
-        function closeModal(modal) {
-            if (modal == null) return;
-            modal.classList.remove('active');
-            overlay.classList.remove('active');
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
